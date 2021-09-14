@@ -41,3 +41,12 @@ print(result)
 a, b = 4, 6.8
 result = a+b
 print(result)
+
+a, b = "3", 5
+result = a + str(b)
+print(result)
+result = f"{a}{b}"
+print(f"{a}{b}")
+
+result = float(a)+b
+print(result)
