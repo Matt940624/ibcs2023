@@ -32,3 +32,12 @@ print(f"a: {a}\t b:{b}")
 myvar = 20
 mytype = type(myvar)
 print(mytype)
+
+# Some operators are overloaded
+a, b = 4, 6
+result = a+b
+print(result)
+
+a, b = 4, 6.8
+result = a+b
+print(result)
