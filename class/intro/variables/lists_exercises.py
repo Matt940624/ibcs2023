@@ -20,6 +20,10 @@ for i in mylist2:
         newlist.append(i)
 print(sorted(newlist))
 
+# If we want not duplicates
+newlist = [i for i in mylist1 if i in mylist2]
+print(newlist)
+
 # 4. Write a program the finds the union of two lists, omitting duplicates
 mylist1 = [1, 1, 1, 2, 3, 3, 3, 4, 5]
 mylist2 = [2, 2, 2, 3, 4, 4, 5, 5, 6]
