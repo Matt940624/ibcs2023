@@ -8,6 +8,16 @@ print(sum(mylist))
 mylist = [1, 1, 1, 2, 3, 3, 3, 4, 5, 6]
 print(list(set(mylist)))
 
+# other solutions
+for val in mylist:
+    while mylist.count(val) > 1:
+        mylist.remove(val)
+
+# other solution
+newlist = [x for i, x in enumerate(mylist) if mylist.index(x) == i]
+
+# other solution
+newlist = [x for i, x in enumerate(mylist) if x not in mylist[i + 1:]]
 # 3. Write a program that finds the interesection of two lists
 mylist1 = [1, 1, 1, 2, 3, 3, 3, 4, 5]
 mylist2 = [2, 2, 2, 3, 4, 4, 5, 5, 6]
@@ -18,11 +28,15 @@ for i in mylist1:
 for i in mylist2:
     if i in mylist1:
         newlist.append(i)
-print(sorted(newlist))
+print(sorted(list(set(newlist))))
 
 # If we want not duplicates
 newlist = [i for i in mylist1 if i in mylist2]
 print(newlist)
+
+# other solutions
+newlist = [x for i, x in enumerate(
+    mylist1)if x in mylist2 and mylist1.index(x) == i]
 
 # 4. Write a program the finds the union of two lists, omitting duplicates
 mylist1 = [1, 1, 1, 2, 3, 3, 3, 4, 5]
@@ -41,6 +55,10 @@ for i in mylist2:
         newlist.append(i)
 print(newlist)
 
+newlist = [i for i in mylist1 if i not in mylist2]
+newlist += [i for i in mylist2 if i not in mylist1]
+print(newlist)
+
 # 6. Write a program that creates a list containing the frequencies of elements in a list
 mylist = [1, 1, 1, 2, 3, 3, 3, 4, 5]
 freq = {}
@@ -50,3 +68,9 @@ for i in mylist:
     else:
         freq[i] = 1
 print(freq)
+
+for val in mylist2:
+    newlist += [(val, mylist1.count(val))]
+
+freq = [(x, mylist1.count(x))
+        for i, x in enumerate(mylist1) if i == mylist1.index(x)]
