@@ -74,5 +74,3 @@ for val in mylist2:
 
 freq = [(x, mylist1.count(x))
         for i, x in enumerate(mylist1) if i == mylist1.index(x)]
-
-# dkla;jdklf;sajsdklfa
