@@ -8,17 +8,37 @@
 text = "google.com"
 freq = {}
 
+
+def counter(string, dictionary):
+    for i in string:
+        if i in freq:
+            dictionary[i] += 1
+        else:
+            dictionary[i] = 1
+    output = f"Answer 1 for #1: {freq}"
+    return output
+
+
+print(counter(text, freq))
+
+
 # 2
 # Write a Python function to insert a string in the middle of a string
-
 # Sample function and result:
 # insert_string_middle('[[]]', 'Python') -> [[Python]]
 # insert_string_middle('{{}}', 'PHP') -> {{PHP}}
 # insert_string_middle('|||', 'Unbalanced') -> |Unbalanced||
+
 wrapper = "(())"
 interior = "Python"
 
 
+def insert(symbol, text):
+    output = symbol
+    return output
+
+
+print(insert(wrapper, interior))
 # 3
 # Write a Python program to display a number with a comma separator.
 # Sample function and result:
