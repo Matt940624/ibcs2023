@@ -34,19 +34,30 @@ interior = "Python"
 
 
 def insert(symbol, text):
-    output = symbol
+    output = symbol[:2] + text + symbol[2:]
     return output
 
 
 print(insert(wrapper, interior))
+
+
 # 3
 # Write a Python program to display a number with a comma separator.
 # Sample function and result:
 # comma_sep("1102") => 1,102
 # comma_sep("2340340958") => 2,340,340,958
 # Advanced: comma_sep("2340340958", 4) => 23,4034,0958
-number = "1102"
 
+number = "1102"
+comma_sep = "3"
+
+
+def comma(number):
+    output = "{:,}".format(int(number))
+    return output
+
+
+print(comma(number))
 
 # 4
 # Write a Python program to move spaces to the front of a given string.
@@ -55,10 +66,44 @@ number = "1102"
 #       "      Thisisasentencewithseveralspaces"
 text = "This is a sentence with several spaces"
 
+
+def space_remove(text):
+    output = text.replace(" ", "")
+    return output
+
+
+print(space_remove(text))
+
 # 5
 # Write a Pythong program to compute sum of digits of a given number string
-number = "394857"
+number = "123"
+
+
+def sum(number):
+    output = 0
+    for i in number:
+        output = output + int(i)
+    return output
+
+
+print(sum(number))
 
 # 6 Write a Python program to determine if a set of parenthesis are balanced
 # (()((()(())())())))()))))(())())()
-text = "(()((()(())())())))()))))(())())()"
+text = "()(())("
+
+
+def check_balance(text):
+    brackets = ["()", "[]", "{}"]
+    while any(x in text for x in brackets):
+        for br in brackets:
+            text = text.replace(br, "")
+    if not text:
+        output = "balanced"
+        return output
+    else:
+        output = "unbalanced"
+        return output
+
+
+print(check_balance(text))
