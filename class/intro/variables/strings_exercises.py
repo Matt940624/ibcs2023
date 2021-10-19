@@ -5,6 +5,7 @@
 # Sample String: 'google.com'
 # Expected Result: {'g': 2, 'o': 3, 'l': 1, 'e': 1, '.': 1, 'c': 1, 'm': 1}
 
+import locale
 text = "google.com"
 freq = {}
 
@@ -34,7 +35,10 @@ interior = "Python"
 
 
 def insert(symbol, text):
-    output = symbol[:2] + text + symbol[2:]
+    length = len(symbol)
+    # divide = int(length / 2)
+    divide = length // 2
+    output = symbol[:divide] + text + symbol[divide:]
     return output
 
 
@@ -48,12 +52,13 @@ print(insert(wrapper, interior))
 # comma_sep("2340340958") => 2,340,340,958
 # Advanced: comma_sep("2340340958", 4) => 23,4034,0958
 
-number = "1102"
+number = 1102454124983548
 comma_sep = "3"
 
 
 def comma(number):
-    output = "{:,}".format(int(number))
+    locale.setlocale(locale.LC_ALL, "zh_TW")
+    output = "{:n}".format(number)
     return output
 
 
