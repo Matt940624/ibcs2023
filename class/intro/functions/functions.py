@@ -70,3 +70,58 @@ def nth_root(num: float, root: int, prec: float = 1e-15) -> float:
 
 r = nth_root(2, 2)
 print(r)
+
+
+r = nth_root(root=4, num=81)
+print(r)
+
+# In Python, functions are first-class members
+myvar = nth_root
+
+r = myvar(num=625, root=4)
+print(r)
+
+
+def even_handler(val: int) -> None:
+    print(f"{val} is divisalbe by 2")
+
+
+def odd_handler(val: int) -> None:
+    print(f"{val} is not divisable by 2")
+
+
+def do_a_thing(even_callback, odd_callback) -> None:
+    for i in range(20):
+        if i % 2 == 0:
+            even_callback(i)
+        else:
+            odd_callback(i)
+
+
+do_a_thing(even_handler, odd_handler)
+
+# Generators
+
+
+def squares() -> int:
+    n = 1
+    while True:
+        yield n**2
+        n += 1
+
+
+val = squares()
+for i in range(100):
+    print(next(val))
+
+
+def fibonacci_numbers(nums):
+    x, y = 0, 1
+    for _ in range(nums):
+        x, y = y, x + y
+        yield x
+
+
+gen = fibonacci_numbers(20)
+for _ in range(20):
+    print(next(gen))
