@@ -39,13 +39,30 @@ print(nPr(10, 7))
 # nCr(10, 7) -> 120
 # nCr(10, 4) -> 210
 def nCr(n: int, r: int) -> int:
-    pass
+    # n!
+    x = 1
+    for i in range(1, n+1):
+        x = x * i
+    # (n-r)!
+    y = 1
+    for i in range(1, (n-r)+1):
+        y = y * i
+    # r!
+    z = 1
+    for i in range(1, r+1):
+        z = z * i
+    result = int(x/(y*z))
+    return result
 
+
+print(nCr(10, 7))
 
 # Write a function that returns a list of n rows of Pascal's Triangle
 # pascals_triangle(3) -> [[1], [1, 1], [1, 2, 1]]
 # pascals_triangle(6) -> [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1]]
 # pascals_triangle(9) -> [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1], [1, 6, 15, 20, 15, 6, 1], [1, 7, 21, 35, 35, 21, 7, 1], [1, 8, 28, 56, 70, 56, 28, 8, 1]]
+
+
 def pascals_triangle(n: int) -> list:
     pass
 
@@ -57,8 +74,19 @@ def pascals_triangle(n: int) -> list:
 # next(gen) -> ***
 # next(gen) -> ****
 # next(gen) -> *****
-def star() -> str:
-    pass
+
+
+def star(n) -> str:
+    for i in range(0, n):
+
+        for j in range(0, i + 1):
+
+            print("* ", end="")
+
+        print()
+
+
+print(star(3))
 
 
 # Seive of eratosthenes
@@ -70,9 +98,19 @@ def star() -> str:
 # next(gen) -> 5
 # next(gen) -> 7
 # next(gen) -> 11
-def next_prime() -> int:
-    pass
+def next_prime(n) -> int:
+    numbers = range(2, n)
+    while len(numbers) > 0:
+        yield numbers[0]
+        numbers = [num for num in numbers if num %
+                   numbers[0] != 0 or num == numbers[0]]
 
+
+gen = next_prime(10)
+print(next(gen))
+
+
+print(next_prime(10))
 
 # Write a generator function that returns the next row of
 # Pascal's Triangle each time it is called
@@ -82,5 +120,7 @@ def next_prime() -> int:
 # next(gen) -> [1, 2, 1]
 # next(gen) -> [1, 3, 3, 1]
 # next(gen) -> [1, 4, 6, 4, 1]
+
+
 def pascals_triangle_gen() -> list:
     pass
