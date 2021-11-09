@@ -20,14 +20,11 @@ print(factorial(4))
 # nPr(10, 7) -> 604800
 # nPr(10, 4) -> 5040
 def nPr(n: int, r: int) -> int:
-    x = 1
-    for i in range(1, n+1):
-        x = x * i
-    y = 1
-    for i in range(1, (n-r)+1):
-        y = y * i
+    x = factorial(n)
+    y = factorial(n-r)
     result = int(x/y)
     return result
+#   result = int(factorial(n)/factorial(n-r))
 
 
 print(nPr(10, 7))
@@ -39,19 +36,7 @@ print(nPr(10, 7))
 # nCr(10, 7) -> 120
 # nCr(10, 4) -> 210
 def nCr(n: int, r: int) -> int:
-    # n!
-    x = 1
-    for i in range(1, n+1):
-        x = x * i
-    # (n-r)!
-    y = 1
-    for i in range(1, (n-r)+1):
-        y = y * i
-    # r!
-    z = 1
-    for i in range(1, r+1):
-        z = z * i
-    result = int(x/(y*z))
+    result = int(factorial(n)/(factorial(n-r)*factorial(r)))
     return result
 
 
@@ -64,8 +49,14 @@ print(nCr(10, 7))
 
 
 def pascals_triangle(n: int) -> list:
-    pass
-
+    rows = []
+    for n in range(n):
+        row = []
+        for r in range(n+1):
+            term = nCr(n, r)
+            row.append(term)
+        rows.append(row)
+    return rows
 
 # Write a generator that produces a string of * characters, each line one * longer than the previous
 # gen = star_gen()
@@ -76,18 +67,16 @@ def pascals_triangle(n: int) -> list:
 # next(gen) -> *****
 
 
-def star(n) -> str:
-    for i in range(0, n):
-
-        for j in range(0, i + 1):
-
-            print("* ", end="")
-
-        print()
+def star() -> str:
+    while True:
+        result = "*"
+        yield result
+        result += "*"
 
 
-print(star(3))
-
+star = star()
+for i in range(3):
+    print(next(star))
 
 # Seive of eratosthenes
 # Create a generator function that will return the next prime number using
@@ -98,6 +87,8 @@ print(star(3))
 # next(gen) -> 5
 # next(gen) -> 7
 # next(gen) -> 11
+
+
 def next_prime(n) -> int:
     numbers = range(2, n)
     while len(numbers) > 0:
