@@ -53,7 +53,7 @@ def draw_menu(ctx: dict, menu: dict) -> callable:
         # Do something here later
         s.addstr(2, 3, menu[PROMPT])
 
-        opt_height = 5
+        opt_height = 8
 
         for idx, opt in enumerate(o):
             if idx == active:
