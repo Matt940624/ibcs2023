@@ -1,0 +1,33 @@
+3 classes:
+    student
+    assignment
+    subject
+
+A subject has multiple students and multiple assignments
+A student can be in multiple subjects
+
+student
+    id
+    Given name
+    family name
+    enrolled subjects
+
+    get assignments_from_subject(subject_name)
+    show_grades()-> list of grades for each  subject
+
+subject
+    subject name
+    students
+    student assignments
+
+    get_assignments_for_student(student_id) -> list of assignments
+    get_student_grade(student_id) -> float
+
+assignment
+    assignment name
+    max marks
+    student marks {
+        student id : student mark
+    }
+
+    get_mean() -> float
