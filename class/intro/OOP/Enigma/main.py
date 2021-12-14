@@ -16,7 +16,7 @@ def encipher_string(seed: any, data: bytearray):
     return encoded_buffer
 def encipher_file(infile_path: str, outfile_path: str, seed: any):
 #Open in and out files in binary format
-    with open(infile_path, '') as infd, open(outfile_path, '') as outfd:
+    with open(infile_path, 'rb') as infd, open(outfile_path, 'wb') as outfd:
 #   Infinite loop we break out of when no more dtat is read
         while True:
 #         read in 64 bytes of data. This is usually a lot more 
