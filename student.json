@@ -1,0 +1,8 @@
+{
+    "students": [{
+        "id": "my_id",
+        "family name": "Parker",
+        "given name": "Brent",
+        "enrolled subjects": "CS"
+    }]
+}

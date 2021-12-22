@@ -5,24 +5,25 @@
 
 A subject has multiple students and multiple assignments
 A student can be in multiple subjects
+Each student in a subject will have one of every assignment
 
 student
-    id
-    Given name
+    ID
+    given name
     family name
     enrolled subjects
 
-    get assignments_from_subject(subject_name)
-    show_grades()-> list of grades for each  subject
+    get_assignments_from_subject(subject_name)
+    show_grades() -> list of grades for each subject
 
 subject
     subject name
     students
     student assignments
 
-    get_assignments_for_student(student_id) -> list of assignments
+    get_assignments_for_student(student_id) -> list of assigments and student marks
     get_student_grade(student_id) -> float
-    get_student_grades() -> list[float]
+    get_student_grades() -> List of student ids and grades
 
 assignment
     assignment name
@@ -32,6 +33,24 @@ assignment
     }
 
     get_mean() -> float
-    get student_grade(student_id)-> float
+    get_student_grade(student_id) -> float
     get_below(percent) -> list of student ids and marks
     get_above(percent) -> list of student ids and marks
+
+
+Be sure to write your data out to SEPARATE files
+
+CSV - Comma separated values
+JSON -
+    {
+        "students": [
+            {
+                "id": "my_id",
+                "family name": "Parker",
+                "given name": "Brent",
+                "enrolled subjects": "",
+            }
+        ]
+    }
+YAML -
+Your own custom format

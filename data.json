@@ -1,0 +1,16 @@
+{
+    "students": [
+        {
+            "id": "my_id",
+            "family name": "Parker",
+            "given name": "Brent",
+            "enrolled subjects": "CS"
+        },
+        {
+            "id": "my_id",
+            "family name": "my_family_name",
+            "given name": "my_given_name",
+            "enrolled subjects": "my_enrolled_subjects"
+        }
+    ]
+}
