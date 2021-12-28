@@ -1,8 +1,33 @@
 {
     "students": [{
-        "id": "my_id",
-        "family name": "Parker",
-        "given name": "Brent",
-        "enrolled subjects": "CS"
-    }]
+            "id": "1",
+            "family name": "Parker",
+            "given name": "Brent",
+            "enrolled subjects": ["CS", "Math", "English"]
+        },
+        {
+            "id": "2",
+            "family name": "Shih",
+            "given name": "Matt",
+            "enrolled subjects": ["English", "Economics", "Physics"]
+        },
+        {
+            "id": "3",
+            "family name": "Ho",
+            "given name": "Sean",
+            "enrolled subjects": ["Math", "Economics", "Physics"]
+        },
+        {
+            "id": "4",
+            "family name": "Wang",
+            "given name": "Aaron",
+            "enrolled subjects": ["CS", "Math", "Physics"]
+        },
+        {
+            "id": "5",
+            "family name": "Ku",
+            "given name": "Preston",
+            "enrolled subjects": ["Economics", "English", "CS"]
+        }
+    ]
 }

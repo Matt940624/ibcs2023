@@ -37,7 +37,6 @@ assignment
     get_below(percent) -> list of student ids and marks
     get_above(percent) -> list of student ids and marks
 
-
 Be sure to write your data out to SEPARATE files
 
 CSV - Comma separated values

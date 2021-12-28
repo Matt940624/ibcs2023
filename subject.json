@@ -1,0 +1,28 @@
+{
+    "subject": [{
+            "subject name": "CS",
+            "students_id": ["1", "4", "5"],
+            "student assignments": ["CS1", "CS2"]
+        },
+        {
+            "subject name": "Math",
+            "students_id": ["1", "3", "4"],
+            "student assignments": ["Math1", "Math2"]
+        },
+        {
+            "subject name": "English",
+            "students_id": ["1", "2", "5"],
+            "student assignments": ["English1", "English2"]
+        },
+        {
+            "subject name": "Physics",
+            "students_id": ["2", "3", "4"],
+            "student assignments": ["Physics1", "Physics2"]
+        },
+        {
+            "subject name": "Economics",
+            "students_id": ["2", "3", "5"],
+            "student assignments": ["Economics1", "Economics2"]
+        }
+    ]
+}

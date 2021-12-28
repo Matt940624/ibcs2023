@@ -3,6 +3,40 @@ import curses
 import os
 
 
+def get_assignments_from_subject(subject_name: str) -> list:
+    pass
+
+
+def show_grades(student_name: str) -> dict:
+    pass
+
+
+def get_assignments_for_student(student_name: str) -> dict:
+    pass
+
+
+def get_student_grade(student_id) -> float:
+    pass
+
+
+def get_student_grades() -> dict:
+    pass
+
+
+def get_mean() -> float:
+    pass
+
+
+def get_student_grade(student_id) -> float:
+    pass
+
+
+def get_below(percent) -> list:
+    pass
+
+
+def get_above(percent) -> list:
+    pass
 # class student_input:
 #     def __init__(self, r):
 #         pass
@@ -13,7 +47,8 @@ import os
 #     def data_pass():
 #         pass
 
-def append(new_data, location="data.json"):
+
+def append(new_data, location="result.json"):
 
     with open(location, "r+") as file:
         old_data = json.load(file)

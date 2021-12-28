@@ -1,0 +1,93 @@
+{
+    "assignments": [{
+            "assignment_name": "Math1",
+            "max marks": 50,
+            "student marks": {
+                "1": 48,
+                "3": 47,
+                "4": 47
+            }
+        },
+        {
+            "assignment_name": "Math2",
+            "max marks": 50,
+            "student marks": {
+                "1": 46,
+                "3": 49,
+                "4": 47
+            }
+        },
+        {
+            "assignment_name": "CS1",
+            "max marks": 50,
+            "student marks": {
+                "1": 50,
+                "4": 50,
+                "5": 50
+            }
+        },
+        {
+            "assignment_name": "CS2",
+            "max marks": 50,
+            "student marks": {
+                "1": 48,
+                "4": 47,
+                "5": 46
+            }
+        },
+        {
+            "assignment_name": "English1",
+            "max marks": 50,
+            "student marks": {
+                "1": 47,
+                "2": 47,
+                "5": 47
+            }
+        },
+        {
+            "assignment_name": "English2",
+            "max marks": 50,
+            "student marks": {
+                "1": 46,
+                "2": 47,
+                "5": 46
+            }
+        },
+        {
+            "assignment_name": "Physics1",
+            "max marks": 50,
+            "student marks": {
+                "2": 40,
+                "3": 42,
+                "4": 41
+            }
+        },
+        {
+            "assignment_name": "Physics2",
+            "max marks": 50,
+            "student marks": {
+                "2": 49,
+                "3": 47,
+                "4": 50
+            }
+        },
+        {
+            "assignment_name": "Economics1",
+            "max marks": 50,
+            "student marks": {
+                "2": 48,
+                "3": 45,
+                "5": 49
+            }
+        },
+        {
+            "assignment_name": "Economics2",
+            "max marks": 50,
+            "student marks": {
+                "2": 48,
+                "3": 49,
+                "5": 45
+            }
+        }
+    ]
+}
