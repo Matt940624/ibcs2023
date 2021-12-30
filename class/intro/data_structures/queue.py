@@ -55,7 +55,7 @@ class Queue:
     def __len__(self):
         return self._length
 
-    def __str__(self):
+    def __str__(self) -> str:
         s = "["
         n = self._head
         while n is not None:
