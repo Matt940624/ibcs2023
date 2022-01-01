@@ -4,76 +4,123 @@ import os
 
 
 class student:
-    def get_assignments_from_subject(subject_name: str) -> list:
-        # from subject.json get list of assignments from input subject_name
-        location = "subject.json"
-        with open(location, "r") as jsonfile:
-            json_load = json.load(jsonfile)
-        data = json_load['subject']['assignments']
-        print(data)
+    def __init__(self) -> None:
+        with open('student.json') as studentfile:
+            self.jsonObject1 = json.load(studentfile)
+        with open('subject.json') as subjectfile:
+            self.jsonObject2 = json.load(subjectfile)
+        with open('assignments.json') as assignmentfile:
+            self.jsonObject3 = json.load(assignmentfile)
 
-    def show_grades(student_name: str) -> dict:
-        pass
+    def get_assignments_from_subject(self, subject_names) -> list:
+        # from subject.json get list of assignments from input subject_name
+        for item in self.jsonObject2['subject']:
+            if item['subject name'] == subject_names:
+                return item['student assignments']
+            else:
+                pass
+
+    def show_grades(self, student_name) -> dict:
+        sb = subject()
+        assignments = sb.get_assignments_for_student(student_name)
+        res_dict = {}
+        id = self.get_student_id(student_name)
+        for task in assignments:
+            dict = sb.get_student_grades(task)
+
+            res_dict[task] = dict[f'{id}']
+        return res_dict
+        # from the assignments use student id to get the marks
+        # show it in a dictionary
+
+    def get_student_id(self, given_name):
+        for item in self.jsonObject1['students']:
+            if item['given name'] == given_name:
+                return item['id']
+            else:
+                pass
 
 
 class subject:
-    def get_assignments_for_student(student_name: str) -> dict:
+    def __init__(self) -> None:
+        with open('student.json') as studentfile:
+            self.jsonObject1 = json.load(studentfile)
+        with open('subject.json') as subjectfile:
+            self.jsonObject2 = json.load(subjectfile)
+        with open('assignments.json') as assignmentfile:
+            self.jsonObject3 = json.load(assignmentfile)
+
+    def get_assignments_for_student(self, student_name) -> dict:
+        # from the student name get the enrolled subject
+        for item in self.jsonObject1['students']:
+            if item['given name'] == student_name:
+                enrolled = item['enrolled subjects']
+            else:
+                pass
+        # from the enrolled subject get the assignments
+        total = []
+        for subject in enrolled:
+
+            st = student()
+            total.extend(st.get_assignments_from_subject(subject))
+        return total
+
+    def get_student_grade(self, student_id) -> float:
         pass
 
-    def get_student_grade(student_id) -> float:
-        pass
-
-    def get_student_grades() -> dict:
-        pass
+    def get_student_grades(self, assignment) -> dict:
+        for item in self.jsonObject3['assignments']:
+            if item['assignment_name'] == assignment:
+                return item['student marks']
+            else:
+                pass
 
 
 class assignment:
-    def get_mean() -> float:
+    def __init__(self) -> None:
+        with open('student.json') as studentfile:
+            self.jsonObject1 = json.load(studentfile)
+        with open('subject.json') as subjectfile:
+            self.jsonObject2 = json.load(subjectfile)
+        with open('assignments.json') as assignmentfile:
+            self.jsonObject3 = json.load(assignmentfile)
+
+    def get_mean(self, assignment) -> float:
+        for item in self.jsonObject3['assignments']:
+            if item['assignment_name'] == assignment:
+                average = sum(item['student marks'].values()) / \
+                    len(item['student marks'].values())
+                return average
+            else:
+                pass
+
+    def get_student_grade(self, student_id) -> float:
         pass
 
-    def get_student_grade(student_id) -> float:
+    def get_below(self, percent) -> list:
         pass
 
-    def get_below(percent) -> list:
-        pass
-
-    def get_above(percent) -> list:
+    def get_above(self, percent) -> list:
         pass
 
 
 class student_grader:
     pass
-# class student_input:
-#     def __init__(self, r):
-#         pass
-
-#     def save():
-#         pass
-
-#     def data_pass():
-#         pass
 
 
-# def append(new_data, location="result.json"):
+def main():
+    a = student()
+    b = subject()
+    c = assignment()
+    A = 'English'
+    B = 'Aaron'
+    C = 'English1'
+    # print(a.get_assignments_from_subject(A))
+    # print(b.get_assignments_for_student(B))
+    # print(b.get_student_grades(C))
+    # print(a.show_grades(B))
+    print(c.get_mean(C))
 
-#     with open(location, "r+") as file:
-#         old_data = json.load(file)
-#         old_data["students"].append(new_data)
-#         file.seek(0)
-#         json.dump(old_data, file, indent=4)
 
-
-# y = {
-#     "id": "my_id",
-#     "family name": "my_family_name",
-#     "given name": "my_given_name",
-#     "enrolled subjects": "my_enrolled_subjects"
-# }
-# append(y)
-
-# r = open('student.json')
-# data = json.load(r)
-# r.close()
-# jsonobject = json.dumps(data, indent=4)
-# with open('data.json', "w") as outfile:
-#     outfile.write(jsonobject)
+if __name__ == "__main__":
+    main()
