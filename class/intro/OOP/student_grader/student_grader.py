@@ -97,6 +97,9 @@ class assignment:
     def get_student_grade(self, student_id) -> float:
         pass
 
+    def percent_calc(self, student_grades):
+        print(student_grades)
+
     def get_below(self, percent) -> list:
         pass
 
@@ -119,7 +122,8 @@ def main():
     # print(b.get_assignments_for_student(B))
     # print(b.get_student_grades(C))
     # print(a.show_grades(B))
-    print(c.get_mean(C))
+    # print(c.get_mean(C))
+    print(c.percent_calc(b.get_student_grades(C)))
 
 
 if __name__ == "__main__":
