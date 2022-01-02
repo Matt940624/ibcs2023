@@ -65,8 +65,8 @@ class subject:
             total.extend(st.get_assignments_from_subject(subject))
         return total
 
-    def get_student_grade(self, student_id) -> float:
-        pass
+    # def get_student_grade(self, student_id) -> float:
+    #     pass
 
     def get_student_grades(self, assignment) -> dict:
         for item in self.jsonObject3['assignments']:
@@ -94,21 +94,47 @@ class assignment:
             else:
                 pass
 
-    def get_student_grade(self, student_id) -> float:
-        pass
+    # def get_student_grade(self, student_id) -> float:
+    #     pass
 
-    def percent_calc(self, student_grades):
-        print(student_grades)
+    def get_below(self, percentage, assignment) -> list:
+        # get max mark for assignment * by percentage
+        result = {}
+        for item in self.jsonObject3['assignments']:
+            if item['assignment_name'] == assignment:
+                max_grade = int(item['max marks']) * percentage/100
 
-    def get_below(self, percent) -> list:
-        pass
+                for value in item['student marks']:
 
-    def get_above(self, percent) -> list:
-        pass
+                    if int(item['student marks'][value]) < max_grade:
+                        result[value] = int(item['student marks'][value])
+                    else:
+                        pass
+                return result
+            else:
+                pass
+        # compare that to all possible values in dict
+        # return values lower than max grade
 
+    def get_above(self, percentage, assignment) -> list:
+        # get max mark for assignment * by percentage
+        result = {}
+        for item in self.jsonObject3['assignments']:
+            if item['assignment_name'] == assignment:
+                min_grade = int(item['max marks']) * percentage/100
 
-class student_grader:
-    pass
+                for value in item['student marks']:
+
+                    if int(item['student marks'][value]) > min_grade:
+                        result[value] = int(item['student marks'][value])
+                    else:
+                        pass
+                return result
+            else:
+                pass
+        # get max mark for assignment * percentage
+        # compare that to all possible values in dict
+        # return values higher than min grade
 
 
 def main():
@@ -123,7 +149,8 @@ def main():
     # print(b.get_student_grades(C))
     # print(a.show_grades(B))
     # print(c.get_mean(C))
-    print(c.percent_calc(b.get_student_grades(C)))
+    print(c.get_below(95, C))
+    print(c.get_above(90, C))
 
 
 if __name__ == "__main__":
