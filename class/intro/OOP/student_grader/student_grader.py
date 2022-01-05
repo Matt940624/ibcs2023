@@ -1,6 +1,4 @@
 import json
-import curses
-import os
 
 
 class student:
@@ -144,10 +142,10 @@ def main():
     A = 'English'
     B = 'Aaron'
     C = 'English1'
-    # print(a.get_assignments_from_subject(A))
-    # print(b.get_assignments_for_student(B))
-    # print(b.get_student_grades(C))
-    # print(a.show_grades(B))
+    print(a.get_assignments_from_subject(A))
+    print(b.get_assignments_for_student(B))
+    print(b.get_student_grades(C))
+    print(a.show_grades(B))
     print(c.get_mean(C))
     print(c.get_below(95, C))
     print(c.get_above(90, C))

@@ -1,10 +1,12 @@
-# data_strutures/queue.py
+# data_structures/dequeue.py
 """
-FIFO. First In First Out
+- Combination of Queue and Stack
+- Double ended Queue
+- FILO + FIFO
 """
 
 
-from typing import Iterable, Iterator
+from typing import Iterator
 
 
 class Node:
@@ -12,17 +14,20 @@ class Node:
         self.data: int = data
         # a node pointing to the next node
         self.next: Node = None
-        pass
+        self.prev: Node = None
 
 
-class Queue:
+class Dequeue:
     def __init__(self) -> None:
         self._head: Node = None
         self._tail: Node = None
         self._length: int = 0
         self._iter: Node = None
 
-    def enqueue(self, data: int) -> None:
+    def append(self, data: int) -> None:
+        """
+        尾部插入
+        """
         n = Node(data)
         if self._tail == None:
             # when this is our first element
@@ -30,22 +35,58 @@ class Queue:
             self._tail = n
         else:
             self._tail.next = n
+            n.prev = self._tail
             self._tail = n
         self._length += 1
 
-    def dequeue(self) -> int:
+    def prepend(self, data: int) -> None:
+        """
+        頭部插入
+        1. create node
+        2. if head is None
+        3. point node at head
+        4. point head.prev at node
+        5. move head to node
+        """
+        n = Node(data)  # starts a node object
+        n.next = self._head  # sets the next to the current head
+
+        if self._head:
+            self._head = n
+            self._tail = n
+        else:
+            self._head.prev = n
+            self._head = n  # updates the head to be the current node added
+        self._length += 1
+
+    def delete_first(self) -> int:
+        """
+        頭部刪除
+        """
         if self._head is None:
             return None
 
         data = self._head.data
         self._head = self._head.next
+        if self._head:
+            self._head.prev = None
+        else:
+            self._tail = None
         self._length -= 1
 
         # takes care of the case when dequeueing the last node, where the tail may still be the node
-        if self._head is None:
-            self._tail = None
 
         return data
+
+    def delete_last(self) -> int:
+        """
+        尾部刪除
+        """
+        if self._head == self._tail:
+            self._head = None
+            self._tail = None
+        else:
+            self._tail = self._tail.prev
 
     def __len__(self):
         return self._length
@@ -77,7 +118,7 @@ class Queue:
 
 
 if __name__ == "__main__":
-    q = Queue()
+    q = Dequeue()
     q.enqueue(1)
     q.enqueue(2)
     q.enqueue(3)
