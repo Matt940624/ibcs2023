@@ -102,14 +102,6 @@ class Dequeue:
         self._iter = self._iter.next  # return iterator
         return tmp
 
-    def __reversed__(self) -> Iterator:
-        def reverse_iterator():
-            r_iter = self._tail
-            while r_iter is not None:
-                yield r_iter.data
-                r_iter = r_iter.prev
-        return reverse_iterator()
-
     def __contains__(self, data: int) -> bool:
         for d in self:
             if d == data:

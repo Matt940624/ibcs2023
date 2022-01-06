@@ -25,9 +25,34 @@ class BinarySearchTree:
             root.right = self._insert(data, root.right)
         return root
 
+    def __iter__(self):
+        def inorder_generator(root: Node) -> int:
+            if root.left is not None:
+                yield from inorder_generator(root.left)
+            yield root.data
+            if root.right is not None:
+                yield from inorder_generator(root.right)
+        return inorder_generator(self._root)
+
+    def __reversed__(self):
+        def revorder_generator(root: Node) -> int:
+            if root.right is not None:
+                yield from revorder_generator(root.right)
+            yield root.data
+            if root.left is not None:
+                yield from revorder_generator(root.left)
+        return revorder_generator(self._root)
+
     def __len__(self):
         return self._length
 
 
 if __name__ == "__main__":
-    pass
+    bst = BinarySearchTree()
+    bst.insert(3)
+    bst.insert(2)
+    bst.insert(1)
+    for v in bst:
+        print(v)
+    for v in reversed(bst):
+        print(v)
