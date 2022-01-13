@@ -12,7 +12,7 @@ class Node:
         self.left: Node = None
 
 
-class BinarySearchTree:
+class AVLTree:
     def __init__(self) -> None:
         self._root: Node = None
         # for easy interpretation in __len__(self)
@@ -35,8 +35,7 @@ class BinarySearchTree:
         else:
             root.right = self._insert(data, root.right)
 
-        self._height(root)
-        return root
+        return self._rebalance(root)
 
     def height(self) -> int:
         return self._root.height
@@ -50,6 +49,50 @@ class BinarySearchTree:
         root.height = max(self._height(root.left),
                           self._height(root.right)) + 1
         return root.height
+
+    def _get_balance(self, root: Node = None) -> int:
+        if root is None:
+            return 0
+        else:
+            return self._height(root.left)-self._height(root.right)
+
+    def _rebalance(self, root: Node = None) -> int:
+        if root is None:
+            return None
+        balance = self._get_balance(root)
+        left_balance = self._get_balance(root.left)
+        right_balance = self._get_balance(root.right)
+
+        if balance > 1 and left_balance >= 0:
+            return self._rotate_right(root)
+        if balance > 1 and left_balance < 0:
+            root.left = self._rotate_left(root.left)
+            return self._rotate_right(root)
+
+        if balance < -1 and right_balance <= 0:
+            return self._rotate_left(root)
+        if balance < -1 and right_balance > 0:
+            root.right = self._rotate_right(root.right)
+            return self._rotate_left(root)
+        return root
+
+    def _rotate_left(self, root: Node) -> Node:
+        new_root = root.right
+        left_subtree = new_root.left
+
+        new_root.left = root
+        root.right = left_subtree
+        self._height(new_root)
+        return new_root
+
+    def _rotate_right(self, root: Node) -> Node:
+        new_root = root.left
+        right_subtree = new_root.right
+
+        new_root.right = root
+        root.left = right_subtree
+        self._height(new_root)
+        return new_root
 
     def __len__(self):
         return self._length
@@ -188,7 +231,8 @@ def tree_printer(root: Node, data_func: Callable, width: int = 64):
 
 
 if __name__ == "__main__":
-    bst = BinarySearchTree()
+    bst = AVLTree()
+
     bst.insert(1)
     bst.insert(2)
     bst.insert(3)
