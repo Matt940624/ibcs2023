@@ -24,8 +24,12 @@ class LRUCache:
         if len(dict.keys()) < cap:
             if key in dict.keys():
                 dict[key] = value
+                del dict[key]
+                dict[key] = value
                 print(dict)
             else:
+                dict[key] = value
+                del dict[key]
                 dict[key] = value
                 print(dict)
         else:
