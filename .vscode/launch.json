@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Blocking TCP Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/blocking/tcp_server.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Blocking TCP Client",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/blocking/tcp_client.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
