@@ -20,6 +20,30 @@
             "program": "${workspaceFolder}/class/intro/networking/blocking/tcp_client.py",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "Blocking UDP Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/blocking/udp_server.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Blocking UDP Client",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/blocking/udp_client.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "NonBlocking TCP Multithreading Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/nonblocking/tcp_multithreading_server.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

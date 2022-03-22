@@ -30,6 +30,7 @@ def main():
         except IOError as err:
             print(f"Server closed connection: {err}")
             break
+    s.close()
 
 
 if __name__ == "__main__":

@@ -5,8 +5,9 @@ import socket
 
 
 def main():
-    host = "172.16.12.41"
-    port = 5000
+    # host = "172.16.12.186"
+    host = "127.0.0.1"
+    port = 9001
 
     # creat a new socket
     s = socket.socket()
