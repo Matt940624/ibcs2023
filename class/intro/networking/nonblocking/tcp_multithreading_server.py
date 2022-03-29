@@ -25,7 +25,7 @@ def main():
         thread.start()
 
 
-def listen_to_client(conn: socket.socket, addr: socket._RetAddress):
+def listen_to_client(conn: socket.socket, addr):
     while True:
         try:
             data = conn.recv(1024)

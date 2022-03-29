@@ -44,6 +44,14 @@
             "program": "${workspaceFolder}/class/intro/networking/nonblocking/tcp_multithreading_server.py",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "NonBlocking TCP Selector Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/nonblocking/tcp_selector_server.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

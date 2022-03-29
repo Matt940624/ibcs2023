@@ -3,8 +3,8 @@ import socket
 
 
 def main():
-    host = "172.16.12.41"
-    port = 5000
+    host = "127.0.0.1"
+    port = 5004
 
     s = socket.socket()
     network_host = (host, port)
