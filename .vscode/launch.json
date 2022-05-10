@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
         {
             "name": "Blocking TCP Server",
             "type": "python",
@@ -50,6 +51,22 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/class/intro/networking/nonblocking/tcp_selector_server.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Nonblocking Async Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/nonblocking/async_echo_server.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Nonblocking Async Cllient",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/class/intro/networking/nonblocking/async_echo_client.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }
