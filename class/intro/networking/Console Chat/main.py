@@ -9,6 +9,7 @@ from chat_client import run_client
 def main(args: argparse.Namespace):
     host = args.host if args.host else "127.0.0.1"
     port = args.port if args.port else 5001
+    test = args.test
 
     if args.server:
         print("starting server:")
@@ -26,7 +27,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--server", "-s", default=False, action="store_true")
-    parser.add_argument("--test", "-t", defualt=True,
+    parser.add_argument("--test", "-t", default=True,
                         action="store_true", help="Start chat client in testing mode")
     parser.add_argument("--host", type=str,
                         help="Specify host name for client/server")
