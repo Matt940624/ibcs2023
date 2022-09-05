@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import asyncio
-from typing import COroutine, Coroutine
+from typing import Coroutine, Coroutine
 from json import loads, dumps
 from xml.sax import parseString
 
